@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kisan Mitra – Agriculture Website</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="top"><div class="wrap">
+ <span data-i18n="hours">Open: Mon–Sat, 9:00 am – 6:00 pm</span>
+ <span>📞 +91-7001908029 &nbsp; ✉ info@agriculture.example</span>
+</div></div>
+
+<header><div class="wrap">
+ <a href="#home" class="logo"><i>🌾</i>Agriculture</a>
+ <nav id="nav"><ul>
+  <li><a href="#home" data-i18n="n_home">Home</a></li>
+  <li><a href="#about" data-i18n="n_about">About</a></li>
+  <li><a href="#crops" data-i18n="n_crops">Crops</a></li>
+  <li><a href="#services" data-i18n="n_services">Services</a></li>
+  <li><a href="#doctor" data-i18n="n_doctor">Crop Doctor</a></li>
+  <li><a href="#iot" data-i18n="n_iot">IoT Farming</a></li>
+  <li><a href="#calendar" data-i18n="n_cal">Crop Calendar</a></li>
+  <li><a href="#guide" data-i18n="n_guide">Farming Guide</a></li>
+  <li><a href="#contact" data-i18n="n_contact">Contact</a></li>
+ </ul></nav>
+ <div class="tools">
+  <button class="lang" id="langBtn" aria-label="Change language">हिन्दी</button>
+  <a class="btn out" href="login.html#register" data-i18n="register">Register</a>
+  <button class="burger" id="burger" aria-label="Menu">☰</button>
+ </div>
+</div></header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+ <button class="arrow prev" aria-label="Previous">‹</button>
+ <button class="arrow next" aria-label="Next">›</button>
+ <div class="slide s1 on"><div class="wrap">
+  <h1 data-i18n="h1a">Homemade Organic Farming</h1>
+  <p data-i18n="h1p">Crop knowledge, seasonal calendars and fertilizer guidance, written for Indian farmers.</p>
+  <a class="btn" href="#crops" data-i18n="discover">Discover More</a>
+ </div></div>
+ <div class="slide s2"><div class="wrap">
+  <h1 data-i18n="h2a">Right Crop, Right Season</h1>
+  <p data-i18n="h2p">Pick your state, month and soil to see what to sow and when to harvest.</p>
+  <a class="btn" href="#calendar" data-i18n="open_cal">Open Crop Calendar</a>
+ </div></div>
+ <div class="badge">100%<br>ORGANIC<br>FOCUS</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about"><div class="wrap about">
+ <div class="pic">🧑‍🌾</div>
+ <div>
+  <h2 data-i18n="about_t">Farming knowledge in one place</h2>
+  <p class="sub" data-i18n="about_p">Kisan Mitra brings crop details, disease guidance, fertilizer advice and government schemes together in simple Hindi and English.</p>
+  <div class="stats">
+   <div><b>12</b><span data-i18n="st1">Crop groups</span></div>
+   <div><b>3</b><span data-i18n="st2">Seasons covered</span></div>
+   <div><b>2</b><span data-i18n="st3">Languages</span></div>
+  </div>
+ </div>
+</div></section>
+
+<!-- SERVICES -->
+<section class="alt" id="services"><div class="wrap">
+ <h2 data-i18n="serv_t">What you can do here</h2>
+ <p class="sub" data-i18n="serv_p">Every tool works without internet APIs or paid services.</p>
+ <div class="grid">
+  <a class="card" href="#crops"><span class="ico">🌱</span><h3 data-i18n="s1t">Crop Information</h3><p data-i18n="s1p">Season, soil, water and diseases for each crop.</p></a>
+  <a class="card" href="#doctor"><span class="ico">🩺</span><h3 data-i18n="s2t">Crop Doctor</h3><p data-i18n="s2p">Choose your crop and symptoms to see causes and treatment.</p></a>
+  <a class="card" href="#calendar"><span class="ico">📅</span><h3 data-i18n="s3t">Crop Calendar</h3><p data-i18n="s3p">Find crops that suit this month and your soil.</p></a>
+  <a class="card" href="#fert"><span class="ico">🧪</span><h3 data-i18n="s4t">Fertilizer Guide</h3><p data-i18n="s4p">Organic and chemical options with safe use tips.</p></a>
+  <a class="card" href="#iot"><span class="ico">📡</span><h3 data-i18n="s5t">Smart Farming with IoT</h3><p data-i18n="s5p">Learn what sensors can do. Information only.</p></a>
+  <a class="card" href="#schemes"><span class="ico">🏛️</span><h3 data-i18n="s6t">Government Schemes</h3><p data-i18n="s6p">Benefits, eligibility and documents.</p></a>
+ </div>
+</div></section>
+
+<!-- CROPS -->
+<section id="crops"><div class="wrap">
+ <h2 data-i18n="crop_t">Featured Crops</h2>
+ <p class="sub" data-i18n="crop_p">Search by name or filter by season.</p>
+ <div class="bar">
+  <input id="cs" type="search" placeholder="Search crop…" data-ph="ph_search" aria-label="Search crops">
+  <div id="chips" style="display:flex;gap:8px;flex-wrap:wrap"></div>
+ </div>
+ <div class="grid" id="cropGrid"></div>
+</div></section>
+
+<!-- CROP DOCTOR -->
+<section class="alt" id="doctor"><div class="wrap">
+ <h2 data-i18n="doc_t">Crop Doctor</h2>
+ <p class="sub" data-i18n="doc_p">Add a photo for your own reference, then choose the crop and symptoms you see.</p>
+ <div class="note" data-i18n="doc_note">This tool does not detect diseases from photos. Results come from the crop and symptoms you select, matched to a fixed list.</div>
+ <div class="card">
+  <div class="bar">
+   <select id="dc" aria-label="Crop"></select>
+   <input type="file" id="dimg" accept="image/*" capture="environment" aria-label="Crop photo">
+  </div>
+  <img id="dprev" class="prev-img" alt="Your crop photo">
+  <p id="dmsg" style="color:#b3261e;font-size:.88rem"></p>
+  <div class="sym" id="dsym"></div>
+  <button class="btn" id="dgo" data-i18n="doc_btn">Show guidance</button>
+  <div id="dres"></div>
+ </div>
+</div></section>
+
+<!-- IOT -->
+<section id="iot"><div class="wrap">
+ <h2 data-i18n="iot_t">Smart Farming with IoT</h2>
+ <p class="sub" data-i18n="iot_p">For learning only. Sensors can tell you when soil is dry or a tank is low, so water and effort are used better.</p>
+ <div class="grid">
+  <div class="card"><span class="ico">💧</span><h3 data-i18n="i1t">Soil Moisture Sensor</h3><p data-i18n="i1p">A probe in the soil reports how wet it is, so you irrigate only when needed.</p><div class="det"><b>₹</b> 150 – 800</div></div>
+  <div class="card"><span class="ico">🚿</span><h3 data-i18n="i2t">Automatic Irrigation</h3><p data-i18n="i2p">A controller opens a valve when moisture drops below a set level.</p><div class="det"><b>₹</b> 3,000 – 15,000</div></div>
+  <div class="card"><span class="ico">🌡️</span><h3 data-i18n="i3t">Temperature & Humidity</h3><p data-i18n="i3p">Track heat and moisture in air to plan spraying and protect crops.</p><div class="det"><b>₹</b> 200 – 1,200</div></div>
+  <div class="card"><span class="ico">🏡</span><h3 data-i18n="i4t">Smart Greenhouse</h3><p data-i18n="i4p">Fans, misters and shade respond to conditions inside the greenhouse.</p><div class="det"><b>₹</b> varies by size</div></div>
+ </div>
+ <p class="sub" style="margin-top:20px" data-i18n="iot_more">Water level, soil pH, benefits and how-to details are listed on the full IoT page. Costs are rough estimates.</p>
+</div></section>
+
+<!-- CALENDAR -->
+<section class="dark" id="calendar"><div class="wrap">
+ <h2 data-i18n="cal_t">Crop Calendar</h2>
+ <p class="sub" data-i18n="cal_p">Choose a season and soil type to see suitable crops.</p>
+ <div class="bar">
+  <select id="cseas"><option value="">All seasons</option><option>Kharif</option><option>Rabi</option><option>Zaid</option></select>
+  <select id="csoil"><option value="">Any soil</option><option>Loamy</option><option>Clay</option><option>Sandy loam</option><option>Black</option></select>
+  <select id="cwat"><option value="">Any water</option><option>High</option><option>Medium</option><option>Low</option></select>
+ </div>
+ <div class="grid" id="calGrid"></div>
+</div></section>
+
+<!-- WEATHER -->
+<section id="weather"><div class="wrap">
+ <h2 data-i18n="w_t">Weather Notes</h2>
+ <div class="note" data-i18n="w_note">Manually maintained sample values. This is not live weather.</div>
+ <div class="grid">
+  <div class="card"><span class="ico">🌡️</span><h3>32°C</h3><p data-i18n="w1">Temperature</p></div>
+  <div class="card"><span class="ico">💦</span><h3>68%</h3><p data-i18n="w2">Humidity</p></div>
+  <div class="card"><span class="ico">🌧️</span><h3>12 mm</h3><p data-i18n="w3">Rainfall</p></div>
+  <div class="card"><span class="ico">🌬️</span><h3>14 km/h</h3><p data-i18n="w4">Wind</p></div>
+ </div>
+</div></section>
+
+<!-- FERTILIZER -->
+<section class="alt" id="fert"><div class="wrap">
+ <h2 data-i18n="f_t">Fertilizer Guide</h2>
+ <div class="grid">
+  <div class="card"><h3>Vermicompost</h3><span class="tag">Organic</span><p data-i18n="f1">Improves soil structure and feeds plants slowly. Mix into soil before sowing.</p></div>
+  <div class="card"><h3>Urea (Nitrogen)</h3><span class="tag">Chemical</span><p data-i18n="f2">Boosts leaf growth. Apply in split doses; avoid before heavy rain. Wear gloves and a mask.</p></div>
+  <div class="card"><h3>DAP (Phosphorus)</h3><span class="tag">Chemical</span><p data-i18n="f3">Helps roots and early growth. Place near the seed row at sowing.</p></div>
+  <div class="card"><h3>MOP (Potassium)</h3><span class="tag">Chemical</span><p data-i18n="f4">Improves grain filling and disease resistance. Apply at sowing or early growth.</p></div>
+ </div>
+</div></section>
+
+<!-- GUIDE -->
+<section id="guide"><div class="wrap">
+ <h2 data-i18n="g_t">Farming Guide</h2>
+ <p class="sub" data-i18n="g_p">Step-by-step guides are on the Farming Guide page.</p>
+ <div class="grid">
+  <a class="card" href="#crops"><span class="ico">🌾</span><h3 data-i18n="g1">Rice, Wheat, Maize</h3></a>
+  <a class="card" href="#crops"><span class="ico">🍅</span><h3 data-i18n="g2">Tomato, Potato, Onion</h3></a>
+  <a class="card" href="#fert"><span class="ico">♻️</span><h3 data-i18n="g3">Organic Farming</h3></a>
+  <a class="card" href="#iot"><span class="ico">💧</span><h3 data-i18n="g4">Drip Irrigation</h3></a>
+ </div>
+</div></section>
+
+<!-- SCHEMES -->
+<section class="alt" id="schemes"><div class="wrap">
+ <h2 data-i18n="sc_t">Government Schemes</h2>
+ <div class="note" data-i18n="sc_note">Check amounts and rules on the official site before applying.</div>
+ <div class="grid">
+  <div class="card"><h3>PM-KISAN</h3><p data-i18n="sc1">Income support for eligible farmer families. Official: pmkisan.gov.in</p></div>
+  <div class="card"><h3>PM Fasal Bima Yojana</h3><p data-i18n="sc2">Crop insurance against losses. Official: pmfby.gov.in</p></div>
+  <div class="card"><h3>Kisan Credit Card</h3><p data-i18n="sc3">Short-term farm credit. Apply through your bank.</p></div>
+  <div class="card"><h3>Soil Health Card</h3><p data-i18n="sc4">Soil test report with nutrient advice. Official: soilhealth.dac.gov.in</p></div>
+ </div>
+</div></section>
+
+<!-- CONTACT -->
+<section id="contact"><div class="wrap about">
+ <div>
+  <h2 data-i18n="ct_t">Send us a message</h2>
+  <form id="cf" novalidate class="grid" style="grid-template-columns:1fr">
+   <input id="cn" placeholder="Name" data-ph="ph_name" required maxlength="80">
+   <input id="cp" placeholder="Mobile" data-ph="ph_mob" inputmode="numeric" maxlength="10">
+   <textarea id="cm" rows="4" placeholder="Your message" data-ph="ph_msg" required maxlength="500"></textarea>
+   <button class="btn" type="submit" data-i18n="send">Send message</button>
+   <p id="cr" aria-live="polite"></p>
+  </form>
+ </div>
+ <div class="card"><h3 data-i18n="ct_i">Contact information</h3><p>📍 Hyderabad, Telangana<br>📞 +91-7061908029<br>✉ info@agriculture.example</p></div>
+</div></section>
+
+<footer><div class="wrap">
+ <div class="grid">
+  <div><h3>🌾 Kisan Mitra</h3><p data-i18n="ft">Simple farming information for Indian farmers.</p></div>
+  <div><h3 data-i18n="ft_x">Explore</h3><ul><li><a href="#crops" data-i18n="n_crops">Crops</a></li><li><a href="#calendar" data-i18n="n_cal">Crop Calendar</a></li><li><a href="login.html#register" data-i18n="register">Register</a></li></ul></div>
+ </div>
+ <p class="copy">© 2026 Agriculture</p>
+</div></footer>
+
+<script src="js/translations.js"></script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

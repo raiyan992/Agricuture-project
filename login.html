@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login / Register – Agriculture</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.authbox{max-width:560px;margin:40px auto;background:#fff;border-radius:var(--r);padding:30px;box-shadow:0 10px 34px #1f4d3a22}
+.tabs{display:flex;gap:10px;margin-bottom:20px}.tabs .chip{flex:1}
+.form{display:grid;gap:12px}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.two{grid-template-columns:1fr}}
+.msg{font-size:.9rem;min-height:1.3em}.err{color:#b3261e}.ok{color:#1f6b3a}
+.hide{display:none}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+ <a href="index.html" class="logo"><i>🌾</i>Kisan Mitra</a>
+ <div class="tools"><button class="lang" id="langBtn">हिन्दी</button><a class="btn out" href="index.html" data-i18n="back">Back to Home</a></div>
+</div></header>
+
+<main class="wrap"><div class="authbox">
+ <div class="tabs">
+  <button class="chip on" id="tLogin" data-i18n="login">Login</button>
+  <button class="chip" id="tReg" data-i18n="register">Register</button>
+ </div>
+
+ <form id="fLogin" class="form" novalidate>
+  <input id="lm" inputmode="numeric" maxlength="10" data-ph="mobile" placeholder="Mobile number" autocomplete="username">
+  <input id="lp" type="password" data-ph="password" placeholder="Password" autocomplete="current-password">
+  <button class="btn" type="submit" data-i18n="login">Login</button>
+  <p class="msg" id="lmsg" aria-live="polite"></p>
+ </form>
+
+ <form id="fReg" class="form hide" novalidate>
+  <input id="rn" maxlength="80" data-ph="name" placeholder="Farmer name">
+  <div class="two">
+   <input id="rm" inputmode="numeric" maxlength="10" data-ph="mobile" placeholder="Mobile number">
+   <input id="re" type="email" data-ph="email" placeholder="Email (optional)">
+  </div>
+  <input id="rp" type="password" data-ph="password" placeholder="Password (min 6 characters)" autocomplete="new-password">
+  <div class="two">
+   <input id="rs" data-ph="state" placeholder="State">
+   <input id="rd" data-ph="district" placeholder="District">
+  </div>
+  <div class="two">
+   <input id="rv" data-ph="village" placeholder="Village">
+   <select id="rl"><option value="hi">हिन्दी</option><option value="en">English</option></select>
+  </div>
+  <button class="btn" type="submit" data-i18n="register">Register</button>
+  <p class="msg" id="rmsg" aria-live="polite"></p>
+ </form>
+
+ <p class="det" data-i18n="note">Demo mode: accounts are saved only in this browser. Real MySQL login needs a secure database connection layer, which is not set up yet.</p>
+</div></main>
+<script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Farmer Dashboard  Agriculture</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header><div class="wrap">
+ <a href="index.html" class="logo"><i>🌾</i>Kisan Mitra</a>
+ <div class="tools"><button class="btn out" id="out">Logout</button></div>
+</div></header>
+<section><div class="wrap">
+ <h2 id="hi">Dashboard</h2>
+ <p class="sub" id="loc"></p>
+ <div class="grid">
+  <a class="card" href="index.html#crops"><span class="ico">🌱</span><h3>My Crops</h3><p>Browse crops and add yours here in the next version.</p></a>
+  <a class="card" href="index.html#doctor"><span class="ico">🩺</span><h3>Crop Doctor</h3><p>Choose crop and symptoms for guidance.</p></a>
+  <a class="card" href="index.html#calendar"><span class="ico">📅</span><h3>Crop Calendar</h3><p>Crops for this season and soil.</p></a>
+  <a class="card" href="index.html#guide"><span class="ico">📖</span><h3>Farming Guides</h3><p>Step-by-step farming help.</p></a>
+  <a class="card" href="index.html#fert"><span class="ico">🧪</span><h3>Fertilizer Information</h3><p>Organic and chemical options.</p></a>
+  <div class="card"><span class="ico">🔔</span><h3>Notifications</h3><p>No new notifications.</p></div>
+ </div>
+</div></section>
+<script>
+const m=localStorage.getItem("km_session");let u=null;
+try{u=(JSON.parse(localStorage.getItem("km_users")||"{}"))[m]}catch(e){}
+if(!u)location.href="login.html";
+else{
+ document.getElementById("hi").textContent="Welcome, "+u.name;
+ document.getElementById("loc").textContent=[u.village,u.district,u.state].join(", ")+" · "+u.mobile;
+}
+document.getElementById("out").onclick=()=>{localStorage.removeItem("km_session");location.href="index.html"};
+</script>
+</body>
+</html>
